@@ -1,27 +1,23 @@
 {
   "version": 2,
+  "name": "myapp",
   "builds": [
     {
       "src": "myproject/wsgi.py",
-      "use": "@vercel/python",
+      "use": "@ardnt/now-python-wsgi",
       "config": {
-        "maxLambdaSize": "15mb",
-        "runtime": "python3.11"
+        "maxLambdaSize": "30mb"
       }
     },
     {
       "src": "build_files.sh",
-      "use": "@vercel/static-build",
+      "use": "@vercel/static",
       "config": {
-        "distDir": "staticfiles_build"
+        "distDir": "staticfiles",
       }
     }
   ],
   "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "myproject/wsgi.py"
