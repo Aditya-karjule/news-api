@@ -1,0 +1,27 @@
+<!-- templates/news_template.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News on Mental Health</title>
+</head>
+<body>
+    <h1>Latest News on Mental Health</h1>
+    
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <ul>
+            {% for article in articles %}
+                <li>
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                    <p><strong>Published:</strong> {{ article.pubDate }}</p>
+                    <p><a href="{{ article.link }}">Read more</a></p>
+                </li>
+                <hr>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
