@@ -9,5 +9,11 @@
             "src": "/(.*)",
             "dest": "myproject/wsgi.py"
         }
-    ]
+    ],
+    "functions": {
+        "myproject/wsgi.py": {
+            "runtime": "python3.9"
+        }
+    }
 }
+
